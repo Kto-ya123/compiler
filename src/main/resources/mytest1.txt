@@ -1,0 +1,38 @@
+main_program
+    begin
+        print(1);
+        char ch = 'a';
+        print(ch);
+        print("Wow");
+
+        string d = "hello world";
+        string str = call testSub(d);
+
+        string s1 = "test";
+        string s2 = "example";
+
+        string s3 = s1+s2;
+        print(s3);
+
+        string s4 = s1*s2;
+        print(s4);
+
+        string s5 = s1-s2;
+        print(s5);
+
+        string s6 = s1/s2;
+        print(s6);
+
+        stringArray a = [s1,s2];
+
+        for(s:a)
+            begin
+                print(s);
+            end
+        end
+
+sub_program string testSub(string b)
+    begin
+        print(b);
+        return b;
+    end
