@@ -25,7 +25,7 @@ COLON=24
 PLUS=25
 MINUS=26
 MULTIPLY=27
-DIVIDE=28
+AND=28
 NEGATION=29
 EQUAL=30
 NON_EQUAL=31
@@ -71,7 +71,7 @@ WS=46
 '+'=25
 '-'=26
 '*'=27
-'/'=28
+'&'=28
 '!'=29
 '=='=30
 '!='=31

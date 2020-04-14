@@ -20,7 +20,7 @@ main_program
         string s5 = s1-s2;
         print(s5);
 
-        string s6 = s1/s2;
+        string s6 = s1&s2;
         print(s6);
 
         stringArray a = [s1,s2];

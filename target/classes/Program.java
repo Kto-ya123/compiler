@@ -123,7 +123,7 @@ class MyString {
         
         s3.data = s1.data.concat(s2.data);
 
-        out.data = s3.data.substring(1,s3.data.length()-1);
+        out.data = s3.data.toUpperCase();
 
 
         return out;

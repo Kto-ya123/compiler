@@ -27,6 +27,7 @@ public class Main {
                 ParseTree tree = parser.global_program();
                 StringGrammarVisitor<String> visitor = new VisitorImpl(parser, "Program");
                 String out = visitor.visit(tree);
+
                 FileWriter fileWriter = new FileWriter("Program.java");
                 fileWriter.write(out);
                 fileWriter.close();

@@ -1,11 +1,12 @@
-package by.bsuir.gen;
-
+package by.bsuir.gen;// Generated from E:/6sem/����/compil/grammar\StringGrammar.g4 by ANTLR 4.7.2
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNDeserializer;
-import org.antlr.v4.runtime.atn.LexerATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class StringGrammarLexer extends Lexer {
@@ -18,7 +19,7 @@ public class StringGrammarLexer extends Lexer {
 		T__0=1, T__1=2, T__2=3, T__3=4, BEGIN=5, IF=6, PRINT=7, FOR=8, ELSE=9, 
 		END=10, CONST=11, WHILE=12, INT=13, CHAR=14, ADD=15, REMOVE=16, STRING=17, 
 		STRING_ARRAY=18, RETURN=19, CALL=20, GLOBAL=21, DOT=22, DOT_COMMA=23, 
-		COLON=24, PLUS=25, MINUS=26, MULTIPLY=27, DIVIDE=28, NEGATION=29, EQUAL=30, 
+		COLON=24, PLUS=25, MINUS=26, MULTIPLY=27, AND=28, NEGATION=29, EQUAL=30, 
 		NON_EQUAL=31, LESS=32, LESS_OR_EQUALS=33, GREATER=34, GREATER_OR_EQUALS=35, 
 		O_BRACKET=36, C_BRACKET=37, K_O_BRACKET=38, K_C_BRACKET=39, SQ_O_BRACKET=40, 
 		SQ_C_BRACKET=41, LINE=42, NUMBER=43, SYMBOL=44, ID=45, WS=46;
@@ -35,7 +36,7 @@ public class StringGrammarLexer extends Lexer {
 			"T__0", "T__1", "T__2", "T__3", "BEGIN", "IF", "PRINT", "FOR", "ELSE", 
 			"END", "CONST", "WHILE", "INT", "CHAR", "ADD", "REMOVE", "STRING", "STRING_ARRAY", 
 			"RETURN", "CALL", "GLOBAL", "DOT", "DOT_COMMA", "COLON", "PLUS", "MINUS", 
-			"MULTIPLY", "DIVIDE", "NEGATION", "EQUAL", "NON_EQUAL", "LESS", "LESS_OR_EQUALS", 
+			"MULTIPLY", "AND", "NEGATION", "EQUAL", "NON_EQUAL", "LESS", "LESS_OR_EQUALS", 
 			"GREATER", "GREATER_OR_EQUALS", "O_BRACKET", "C_BRACKET", "K_O_BRACKET", 
 			"K_C_BRACKET", "SQ_O_BRACKET", "SQ_C_BRACKET", "LINE", "NUMBER", "SYMBOL", 
 			"ID", "WS"
@@ -48,7 +49,7 @@ public class StringGrammarLexer extends Lexer {
 			null, "'main_program'", "','", "'='", "'sub_program'", "'begin'", "'if'", 
 			"'print'", "'for'", "'else'", "'end'", "'const'", "'while'", "'int'", 
 			"'char'", "'add'", "'remove'", "'string'", "'stringArray'", "'return'", 
-			"'call'", "'global'", "'.'", "';'", "':'", "'+'", "'-'", "'*'", "'/'", 
+			"'call'", "'global'", "'.'", "';'", "':'", "'+'", "'-'", "'*'", "'&'", 
 			"'!'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "'('", "')'", "'{'", 
 			"'}'", "'['", "']'"
 		};
@@ -59,7 +60,7 @@ public class StringGrammarLexer extends Lexer {
 			null, null, null, null, null, "BEGIN", "IF", "PRINT", "FOR", "ELSE", 
 			"END", "CONST", "WHILE", "INT", "CHAR", "ADD", "REMOVE", "STRING", "STRING_ARRAY", 
 			"RETURN", "CALL", "GLOBAL", "DOT", "DOT_COMMA", "COLON", "PLUS", "MINUS", 
-			"MULTIPLY", "DIVIDE", "NEGATION", "EQUAL", "NON_EQUAL", "LESS", "LESS_OR_EQUALS", 
+			"MULTIPLY", "AND", "NEGATION", "EQUAL", "NON_EQUAL", "LESS", "LESS_OR_EQUALS", 
 			"GREATER", "GREATER_OR_EQUALS", "O_BRACKET", "C_BRACKET", "K_O_BRACKET", 
 			"K_C_BRACKET", "SQ_O_BRACKET", "SQ_C_BRACKET", "LINE", "NUMBER", "SYMBOL", 
 			"ID", "WS"
@@ -106,7 +107,7 @@ public class StringGrammarLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "AltString.g4"; }
+	public String getGrammarFileName() { return "StringGrammar.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -196,9 +197,9 @@ public class StringGrammarLexer extends Lexer {
 		"\7n\2\2\u00dd,\3\2\2\2\u00de\u00df\7\60\2\2\u00df.\3\2\2\2\u00e0\u00e1"+
 		"\7=\2\2\u00e1\60\3\2\2\2\u00e2\u00e3\7<\2\2\u00e3\62\3\2\2\2\u00e4\u00e5"+
 		"\7-\2\2\u00e5\64\3\2\2\2\u00e6\u00e7\7/\2\2\u00e7\66\3\2\2\2\u00e8\u00e9"+
-		"\7,\2\2\u00e98\3\2\2\2\u00ea\u00eb\7\61\2\2\u00eb:\3\2\2\2\u00ec\u00ed"+
-		"\7#\2\2\u00ed<\3\2\2\2\u00ee\u00ef\7?\2\2\u00ef\u00f0\7?\2\2\u00f0>\3"+
-		"\2\2\2\u00f1\u00f2\7#\2\2\u00f2\u00f3\7?\2\2\u00f3@\3\2\2\2\u00f4\u00f5"+
+		"\7,\2\2\u00e98\3\2\2\2\u00ea\u00eb\7(\2\2\u00eb:\3\2\2\2\u00ec\u00ed\7"+
+		"#\2\2\u00ed<\3\2\2\2\u00ee\u00ef\7?\2\2\u00ef\u00f0\7?\2\2\u00f0>\3\2"+
+		"\2\2\u00f1\u00f2\7#\2\2\u00f2\u00f3\7?\2\2\u00f3@\3\2\2\2\u00f4\u00f5"+
 		"\7>\2\2\u00f5B\3\2\2\2\u00f6\u00f7\7>\2\2\u00f7\u00f8\7?\2\2\u00f8D\3"+
 		"\2\2\2\u00f9\u00fa\7@\2\2\u00faF\3\2\2\2\u00fb\u00fc\7@\2\2\u00fc\u00fd"+
 		"\7?\2\2\u00fdH\3\2\2\2\u00fe\u00ff\7*\2\2\u00ffJ\3\2\2\2\u0100\u0101\7"+

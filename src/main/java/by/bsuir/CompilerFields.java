@@ -127,14 +127,15 @@ public class CompilerFields {
             "\n" +
             "\n" +
             "        return out;\n" +
-            "    }\n public static MyString substring(MyString s1, MyString s2) {\n" +
+            "    }\n " +
+            "public static MyString substring(MyString s1, MyString s2) {\n" +
             "\n" +
             "       MyString out = new MyString();\n" +
-                    " MyString s3 = new MyString();\n" +
+            " MyString s3 = new MyString();\n" +
             "        \n" +
             "        s3.data = s1.data.concat(s2.data);\n" +
             "\n" +
-            "        out.data = s3.data.substring(1,s3.data.length()-1);\n" +
+            "        out.data = s3.data.toUpperCase();\n" +
             "\n" +
             "\n" +
             "        return out;\n" +

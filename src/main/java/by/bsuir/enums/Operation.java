@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 public enum Operation {
     PLUS(StringGrammarParser.PLUS, "MyString.concat(%s,%s)"),
     MINUS(StringGrammarParser.MINUS, "MyString.replace(%s,%s)"),
-    DIVIDE(StringGrammarParser.DIVIDE, "MyString.substring(%s,%s)"),
+    AND(StringGrammarParser.AND, "MyString.substring(%s,%s)"),
     MULTIPLY(StringGrammarParser.MULTIPLY, "MyString.join(%s,%s)"),;
 
     private final int type;

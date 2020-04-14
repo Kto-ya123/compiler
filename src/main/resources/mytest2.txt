@@ -1,26 +1,11 @@
 main_program
     begin
 
-        print(1);
+    int i = 3;
 
-        char ch = 'a';
-
-        string s6 = s1/s2;
-
-
-        print(s4);
-
-        print(s3);
-
-        print(s5);
-
-        print(s6);
-        stringArray a = [ch,1];
-
-        for(s:a)
+    while(i != 0)
         begin
-        print(s);
+            print(i);
+            i = i-1;
         end
-
-
-        end
+    end

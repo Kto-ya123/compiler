@@ -68,13 +68,13 @@ public class MyString {
 
     public static MyString substring(MyString s1, MyString s2) {
 
-        MyString s3 = new MyString();
-
         MyString out = new MyString();
+
+        MyString s3 = new MyString();
 
         s3.data = s1.data.concat(s2.data);
 
-        out.data = s3.data.substring(1,s3.data.length()-1);
+        out.data = s3.data.toUpperCase();
 
         return out;
     }

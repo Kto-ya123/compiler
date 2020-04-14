@@ -1,11 +1,11 @@
 main_program
     begin
-    print(1);
 
-    char ch = 'a';
-    stringArray a = [ch];
-    for(s:a)
+    int i = 3;
+
+    while(i != 0)
         begin
-        print(s);
+            print(i);
+            i = i-1;
+        end
     end
-end

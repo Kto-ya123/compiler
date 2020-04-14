@@ -1,5 +1,4 @@
-package by.bsuir.gen;
-
+package by.bsuir.gen;// Generated from E:/6sem/����/compil/grammar\StringGrammar.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -202,5 +201,4 @@ public interface StringGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitGlobal_program(StringGrammarParser.Global_programContext ctx);
-
 }

@@ -1,5 +1,4 @@
-package by.bsuir.gen;
-
+package by.bsuir.gen;// Generated from E:/6sem/����/compil/grammar\StringGrammar.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -101,7 +100,7 @@ public class StringGrammarBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrint(StringParser.PrintContext ctx) throws StringSyntaxException { return visitChildren(ctx); }
+	@Override public T visitAssign_string(StringGrammarParser.Assign_stringContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

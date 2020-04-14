@@ -1,5 +1,5 @@
 
-grammar StringGrammar;
+grammar  StringGrammar;
 program : 'main_program' block;
 
 block :BEGIN statement* END;
@@ -45,7 +45,7 @@ COLON : ':';
 PLUS: '+';
 MINUS: '-';
 MULTIPLY: '*';
-DIVIDE: '/';
+AND: '&';
 
 NEGATION : '!';
 EQUAL: '==';
@@ -71,7 +71,7 @@ SYMBOL : '\''(.)'\'';
 ID : [a-zA-Z_][a-zA-Z_0-9]*;
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
-digit_expression:	digit_expression (MULTIPLY|DIVIDE) digit_expression
+digit_expression:	digit_expression (MULTIPLY|AND) digit_expression
     |	digit_expression (PLUS|MINUS) digit_expression
     |	ID
     |	O_BRACKET digit_expression C_BRACKET
@@ -79,7 +79,7 @@ digit_expression:	digit_expression (MULTIPLY|DIVIDE) digit_expression
     ;
 
    intialize_char: SYMBOL;
-   initialize_string: LINE|(ID(MULTIPLY|DIVIDE|PLUS|MINUS)ID);
+   initialize_string: LINE|(ID(MULTIPLY|AND|PLUS|MINUS)ID);
    initialize_string_array : (SQ_O_BRACKET SQ_C_BRACKET)|(SQ_O_BRACKET (ID ',')* ID SQ_C_BRACKET);
 
    global_assign_var : GLOBAL assign_var;

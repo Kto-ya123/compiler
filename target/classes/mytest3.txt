@@ -1,16 +1,13 @@
 main_program
     begin
 
-        print('a');
+    string par = "oops";
+    string str = call testSub(par);
 
-        char ch = 'a';
+    end
 
-        stringArray a = [ch];
-
-        for(s:a)
-        begin
-        print(s);
-        end
-
-
-        end
+        sub_program string testSub(int b)
+            begin
+                print(b);
+                return b;
+            end
