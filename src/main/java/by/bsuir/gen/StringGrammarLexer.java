@@ -106,7 +106,7 @@ public class StringGrammarLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "StringGrammar.g4"; }
+	public String getGrammarFileName() { return "AltString.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

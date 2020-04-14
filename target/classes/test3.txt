@@ -5,6 +5,8 @@ main_program
 
         char ch = 'a';
 
+
+
         stringArray a = [ch];
 
         for(s:a)

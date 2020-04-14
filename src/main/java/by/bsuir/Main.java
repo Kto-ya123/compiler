@@ -18,7 +18,7 @@ public class Main {
         }
         System.out.println("Args not empty");
         String text = getString(args[0]);
-//        String text = getString("E:\\JAVA\\AIPOS\\compiler\\src\\main\\resources\\test2.txt");
+
         if (text != null) {
             try {
                 StringGrammarLexer lexer = new StringGrammarLexer(CharStreams.fromString(text));
