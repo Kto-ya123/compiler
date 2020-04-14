@@ -1,11 +1,12 @@
 import exception.StringSyntaxException;
+
 import java.util.*;
 
 public class Compiler extends StringParserBaseVisitor<String> {
     private List<String> functions = new ArrayList<>();
 
     @Override
-    public String visitProgram(StringParser.ProgramContext ctx) {
+    public String visitProgram(StringParser.ProgramContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
 
 //        ret .append( "#include <algorithm>\n";
@@ -27,17 +28,17 @@ public class Compiler extends StringParserBaseVisitor<String> {
         ret.append("public static void main() {\n");
         if (!ctx.expression().isEmpty()) {
             for (StringParser.ExpressionContext e : ctx.expression()) {
-                ret.append(visitExpression(e);
+                ret.append(visitExpression(e));
             }
         }
-        ret.append("return 0;\n";
-        ret.append("}\n";
+        ret.append("return 0;\n");
+        ret.append("}\n");
 
-        return ret;
+        return ret.toString();
     }
 
     @Override
-    public String visitExpression(StringParser.ExpressionContext ctx) {
+    public String visitExpression(StringParser.ExpressionContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         if (Objects.nonNull(ctx.instruction())) {
             ret.append(visitInstruction(ctx.instruction())).append("\n");
@@ -95,7 +96,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitOperators(StringParser.OperatorsContext ctx) {
+    public String visitOperators(StringParser.OperatorsContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         if (!ctx.expression().isEmpty()) {
             for (StringParser.ExpressionContext e : ctx.expression()) {
@@ -106,7 +107,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitInstruction(StringParser.InstructionContext ctx) {
+    public String visitInstruction(StringParser.InstructionContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
 
         if (Objects.nonNull(ctx.if_instruction())) {
@@ -128,7 +129,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitIf_instruction(StringParser.If_instructionContext ctx) {
+    public String visitIf_instruction(StringParser.If_instructionContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
 
         ret.append("if (").append(visitCondition(ctx.condition())).append(" ) {\n");
@@ -143,12 +144,12 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitThen_block(StringParser.Then_blockContext ctx) {
+    public String visitThen_block(StringParser.Then_blockContext ctx)throws StringSyntaxException {
         return visitOperators(ctx.operators());
     }
 
     @Override
-    public String visitElse_block(StringParser.Else_blockContext ctx) {
+    public String visitElse_block(StringParser.Else_blockContext ctx)throws StringSyntaxException {
         return visitOperators(ctx.operators());
     }
 
@@ -196,12 +197,12 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitReturn_instruction(StringParser.Return_instructionContext ctx) {
+    public String visitReturn_instruction(StringParser.Return_instructionContext ctx) throws StringSyntaxException {
         return "return " + visitOperation(ctx.operation()) + ";";
     }
 
     @Override
-    public String visitOperation(StringParser.OperationContext ctx) {
+    public String visitOperation(StringParser.OperationContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         if (ctx.function_call() != null) {
             ret.append(visitFunction_call(ctx.function_call()));
@@ -227,7 +228,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitFunction_call(StringParser.Function_callContext ctx) {
+    public String visitFunction_call(StringParser.Function_callContext ctx) throws StringSyntaxException {
         return (visitName(ctx.name()) + "(" + visitParam_list(ctx.param_list()) + ")");
     }
 
@@ -242,17 +243,17 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitItem_index1(StringParser.Item_index1Context ctx) {
+    public String visitItem_index1(StringParser.Item_index1Context ctx) throws StringSyntaxException {
         return visitOperand(ctx.operand());
     }
 
     @Override
-    public String visitItem_index2(StringParser.Item_index2Context ctx) {
+    public String visitItem_index2(StringParser.Item_index2Context ctx) throws StringSyntaxException {
         return visitOperand(ctx.operand());
     }
 
     @Override
-    public String visitParam_list(StringParser.Param_listContext ctx) {
+    public String visitParam_list(StringParser.Param_listContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         for (int i = 0; i < ctx.operation().size(); ++i) {
             ret.append(visitOperation(ctx.operation().get(i)));
@@ -264,12 +265,12 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitLen_function(StringParser.Len_functionContext ctx) {
+    public String visitLen_function(StringParser.Len_functionContext ctx) throws StringSyntaxException {
         return visitOperation(ctx.operation()) + ".length()";
     }
 
     @Override
-    public String visitCondition(StringParser.ConditionContext ctx) {
+    public String visitCondition(StringParser.ConditionContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         List<StringParser.Logical_conjContext> conjunctions = ctx.logical_conj();
         for (int i = 0; i < conjunctions.size() - 1; ++i) {
@@ -280,7 +281,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitLogical_conj(StringParser.Logical_conjContext ctx) {
+    public String visitLogical_conj(StringParser.Logical_conjContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         if (ctx.condition() != null) {
             ret.append('(').append(visitCondition(ctx.condition())).append(')');
@@ -296,16 +297,15 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitLogical_factor(StringParser.Logical_factorContext ctx) {
-       0 /*StringBuilder ret = new StringBuilder();
+    public String visitLogical_factor(StringParser.Logical_factorContext ctx) throws StringSyntaxException {
+        StringBuilder ret = new StringBuilder();
         if (ctx.negation() != null) {
             ret.append("!");
         }
         ret.append(ctx.condition() != null
                 ? visitCondition(ctx.condition())
                 : visitOperation(ctx.operation()));
-        return ret.toString();*/
-        return super.visitLogical_factor(ctx);
+        return ret.toString();
     }
 
     @Override
@@ -329,7 +329,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitOperand(StringParser.OperandContext ctx) {
+    public String visitOperand(StringParser.OperandContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
 
         if (ctx.name() != null) {     //todo check condition
@@ -354,7 +354,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
     }
 
     @Override
-    public String visitArray(StringParser.ArrayContext ctx) {
+    public String visitArray(StringParser.ArrayContext ctx) throws StringSyntaxException {
         StringBuilder ret = new StringBuilder();
         ret.append("std::list<std::string>({");
 
@@ -364,7 +364,7 @@ public class Compiler extends StringParserBaseVisitor<String> {
             if ((element.name() &&
                     scopeVariables.findBySecond(visitName(element.name())).first != "str") ||
                     element.ident().STRING() == null) {
-                throw StringSyntaxException("Wrong value of an array");
+                throw new StringSyntaxException("Wrong value of an array");
             } else {
                 ret.append(visitOperand(element));
                 if (i < ctx.operand().size() - 1) {
